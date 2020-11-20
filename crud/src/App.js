@@ -37,6 +37,7 @@ class App extends React.Component {
   getData() {
     return axios.get(URL_API)
       .then(function (response) {
+        //console.log(response)
         return response;
       })
       .catch(function (error) {
