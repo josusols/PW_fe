@@ -1,3 +1,9 @@
 body {
-  background: rgb(107, 107, 107);
+  background-image: url('https://www.unitedwebagency.com/design_custom/assets/BG%20top.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+  background-size: contain ;
+  
+
 }

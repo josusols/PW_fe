@@ -30,6 +30,7 @@ class App extends React.Component {
 
   componentDidMount(){
     return this.getData().then(res => {
+      console.log(res.data);
       return this.setState({data: res.data});
     })
   }
@@ -59,12 +60,25 @@ class App extends React.Component {
     }
   }
 
-  async modPelicula (prmData){
-    //let dataPelicula = JSON.parse(this.getData());
-    
-    await axios.put(`${URL_API}update`, {pelicula: prmData})
+  modPelicula (prmData){
+
+    prmData=({...prmData});
+    let tempState = this.state;
+    let tempFunction = value => {
+        this.setState(value);
+      }
+
+    return axios.put(`${URL_API}update`, {pelicula: prmData})
       .then(function (response) {
-        return response;
+        let tempList = tempState.data.map(function(movieObj) {
+          if (movieObj._id === prmData._id) {
+            return prmData;
+          }
+          return movieObj;
+        });
+
+        tempFunction({data: tempList});
+        //return response;
       })
       .catch(function (error) {
         return error;
@@ -83,9 +97,15 @@ class App extends React.Component {
   addPelicula(prmData){
     
     prmData=({...prmData});
+    let tempState = this.state;
+    let tempFunction = value => {
+      this.setState(value);
+    }
     return axios.post(`${URL_API}add`, {pelicula: prmData})
       .then(function (response) {
-        return response;
+        var test = tempState.data.concat(response.data);
+        tempFunction({data: test});
+        //return response;
       })
       .catch(function (error) {
         return error;
@@ -119,8 +139,8 @@ class App extends React.Component {
     this.setState({show: 2});
   }
 
-  del = async (p) => {
-    pelicula = await axios.get(`${URL_API}${p}`)
+  del = (p) => {
+    pelicula = axios.get(`${URL_API}${p}`)
       .then(function (response) {
         return response.data[0];
       })
@@ -128,9 +148,16 @@ class App extends React.Component {
         return error;
       });
     if (window.confirm("¿Está seguro que desea eliminar " + pelicula.titulo + "?")) {
-      axios.delete(`${URL_API}del/${p}`)
+      let tempState = this.state;
+      let tempFunction = value => {
+        this.setState(value);
+      }
+      return axios.delete(`${URL_API}del/${p}`)
       .then(function (response) {
-        return response;
+        let newList = tempState.data.filter(movie => movie._id !== p);
+        console.log(newList);
+        tempFunction({data: newList});
+        //return response;
       })
       .catch(function (error) {
         return error;

@@ -2,12 +2,12 @@
   background: rgb(39, 38, 38);
 }
 #cr {
-  background: rgb(53, 52, 52);
+  background: #faf9f9;
 }
 #txt {
-  color: white;
+  color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-shadow: 2px 1px black;
+  
 }
 #imagen {
   background: rgb(255, 255, 255);

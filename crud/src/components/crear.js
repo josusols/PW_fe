@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+
+
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -14,6 +16,8 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(2),
         margin: 'auto',
         maxWidth: '60%',
+        borderRadius: "15px"
+        
     },
     textField: {
         marginLeft: theme.spacing(5),
@@ -33,7 +37,7 @@ export default function ComplexGrid(props) {
   return (
     <div className={classes.root}>
         <form noValidate autoComplete = "off">
-            <Paper id="cr" className={classes.paper}>
+            <Paper id="cr" className={classes.paper} elevation={3}>
                 <Grid container spacing={2}>
                     <Grid item>
                         <Typography id="txt" gutterBottom variant="h4">
@@ -48,6 +52,7 @@ export default function ComplexGrid(props) {
                             margin="normal"
                             variant="outlined"
                             name="titulo"
+                            
                             onChange={props.change('titulo')}
                             defaultValue = {props.pelicula.titulo}
                         />
