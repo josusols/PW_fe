@@ -1,0 +1,23 @@
+#hello {
+  background: rgb(39, 38, 38);
+}
+#cr {
+  background: rgb(53, 52, 52);
+}
+#txt {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 2px 1px black;
+}
+#imagen {
+  background: rgb(255, 255, 255);
+  box-shadow: 3px 2px black;
+}
+#edit {
+  color: white;
+  background: rgb(0, 94, 5);
+}
+#del {
+  color: white;
+  background: rgb(100, 0, 0);
+}
