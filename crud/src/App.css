@@ -1,5 +1,5 @@
 #hello {
-  background: rgb(39, 38, 38);
+  background: #f7ede2;
 }
 #cr {
   background: #faf9f9;
@@ -15,9 +15,9 @@
 }
 #edit {
   color: white;
-  background: rgb(0, 94, 5);
+  background: #84a59d;
 }
 #del {
   color: white;
-  background: rgb(100, 0, 0);
+  background: #f28482;
 }

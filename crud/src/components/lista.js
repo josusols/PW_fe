@@ -44,7 +44,7 @@ export default function ComplexGrid(props) {
 
   return props.data.map(e =>
     <div className={classes.root} key={e._id}>
-      <Paper id="hello" className={classes.paper}>
+      <Paper id="hello" className={classes.paper} elevation={3}>
         <Grid id="txt" container spacing={2}>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
